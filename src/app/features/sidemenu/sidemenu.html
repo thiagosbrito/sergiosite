@@ -1,0 +1,52 @@
+<nav class="sidemenu" ng-hide="state.current.name == 'main.landing'" fade-effect data-fade="fade-in" data-state="">
+  <div class="category-nav" ng-show="state.current.name != 'main.contact'">
+    <accordion close-others="true">
+      <accordion-group heading="{{item.title}}" panel-class="sidemenu-main-item" ng-repeat="item in menuItems track by $index">
+        <ul class="nav nav-pills nav-stacked">
+          <li ng-repeat="child in item.children track by $index" class="children">
+            <a ui-sref="main.gallery({tipo: item.sref, id: child.id, tipoThumb: child.tipo_thumb})">
+              {{child.titlePt}}<br/>
+              {{child.titleEn}}
+            </a>
+            <ul ng-if="child.children" class="nav nav-pills nav-stacked">
+              <li ng-repeat="child in child.children" class="c-children">
+                <a ui-sref="main.gallery({tipo: item.sref, id: child.id})">
+                  {{child.titleEn}}
+                  <!-- {{child.titlePt}}<br> -->
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </accordion-group>
+    </accordion>
+    <!-- <accordion close-others="true">
+      <accordion-group heading="Paintings" panel-class="sidemenu-main-item">
+        <ul class="nav nav-pills nav-stacked">
+          <li ng-repeat="pa in linksPaints.links_paintings" class="children">
+            <a>
+              {{pa.titulo_pt}}<br/>
+              {{pa.titulo_en}}
+            </a>
+          </li>
+        </ul>
+      </accordion-group>
+      <accordion-group heading="Photography" panel-class="sidemenu-main-item">
+        <ul class="nav nav-pills nav-stacked">
+          <li ng-repeat="ph in linksPhoto.links_photography" class="children">
+            <a>
+              {{ph.titulo_pt}}<br/>
+              {{ph.titulo_en}}
+            </a>
+          </li>
+        </ul>
+      </accordion-group> -->
+  </div>
+  <div class="section-nav">
+    <ul class="nav nav-pills nav-stacked">
+      <li><a ui-sref="main.contact">Contact</a></li>
+      <li><a ui-sref="main.home">Home</a></li>
+      <li><a ui-sref="main.about">About me</a></li>
+    </ul>
+  </div>
+</nav>

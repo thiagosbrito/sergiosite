@@ -1,0 +1,17 @@
+<div>
+  <ul class="thumb-gallery">
+    <li
+      ng-repeat="thumb in images | limitTo: 'sParam.limit'"
+      ng-click="openModal(thumb)">
+        <div class="thumb" ng-class="{'size-1': sParam.tipoThumb == '1', 'size-2': sParam.tipoThumb == '2'}">
+          <div class="image">
+            <img
+              src="http://sergiorighini.com/2016/img/{{sParam.tipo}}/tmb/{{thumb.img_thumb}}"
+              class="img-gallery"
+              ng-class="{'size-1': sParam.tipoThumb == '1', 'size-2': sParam.tipoThumb == '2'}"
+              alt="{{tipoThumb}}"> 
+          </div>
+        </div>
+    </li>
+  </ul>
+</div>
