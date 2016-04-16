@@ -1,5 +1,35 @@
-<img ng-src="http://sergiorighini.com/2016/img/{{sParam.tipo}}/{{image.img_grande}}" class="img-modal-gallery">
-<ul class="controls">
-  <li class="prev" ng-click="navigate(image.prev)" ng-hide="image.first"><i class="fa fa-angle-left fa-4x"></i></li>
-  <li class="next" ng-click="navigate(image.next)" ng-hide="image.last"><i class="fa fa-angle-right fa-4x"></i></li>
-</ul>
+<div class="row gallery-sergio">
+	<div class="container-fluid">
+		<div class="col-lg-1 col-lg-offset-11">
+			<a ng-click="cancel()">
+				<i class="fa fa-times"></i>
+			</a>
+		</div>
+		<div class="col-lg-1">
+			<a class="prev" ng-click="navigate(image.prev)" ng-hide="image.first">
+				<i class="fa fa-angle-left fa-4x"></i>
+			</a>
+		</div>
+		<div class="col-lg-10 text-first-image-holder" ng-if="image.obra_1">
+			<div class="col-lg-6">
+				<p ng-bind-html="image.obra_1"></p>
+			</div>
+			<div class="col-lg-6">
+				<p ng-bind-html="image.obra_2"></p>
+			</div>
+		</div>
+		<div class="col-lg-10">
+			<img ng-src="http://sergiorighini.com/2016/img/{{sParam.tipo}}/{{image.img_grande}}" class="img-responsive">
+		</div>
+		<div class="col-lg-1">
+			<a class="next" ng-click="navigate(image.next)" ng-hide="image.last">
+				<i class="fa fa-angle-right fa-4x"></i>
+			</a>
+		</div>
+		<div class="col-lg-4 col-lg-offset-7 text-right">
+			<p class="image-desc-size-1" ng-if="image.primeira_linha">{{image.primeira_linha}}</p>
+			<p class="image-desc-size-2" ng-if="image.segunda_linha">{{image.segunda_linha}}</p>
+			<a href="{{image.link}}" target="_new" ng-if="image.link">{{image.texto_link}}</a>
+		</div>
+	</div>
+</div>

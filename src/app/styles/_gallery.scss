@@ -47,6 +47,10 @@
   .modal-content {
     background-color: transparent; 
   }
+  .modal-dialog {
+    width: 80% !important;
+    margin: 0 auto;
+  }
 }
 img.img-modal-gallery {
   position: relative;
@@ -72,5 +76,44 @@ img.img-modal-gallery {
   }
   .next {
     right: -30px;
+  }
+}
+
+.gallery-sergio {
+  margin-top: 2.75%;
+  a {
+    color: #FFF !important;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .prev,
+  .next {
+    top: 210px;
+    position: absolute;
+  }
+  .prev:hover,
+  .next:hover {
+    color: #E8E825;
+  }
+  .image-desc-size-1 {
+    padding-top: 5px;
+    line-height: 10px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bolder;
+  }
+  .image-desc-size-2 {
+    color: #fff;
+    font-size: 12px;
+    font-weight: lighter;
+    margin-top: -6px;
+  }
+  .text-first-image-holder {
+    position: absolute;
+    z-index: 3;
+    top: 60px;
+    left: 90px;
+    font-size: 12px;
   }
 }

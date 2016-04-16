@@ -29,7 +29,6 @@ angular.module 'sergio'
             for child in item.children
               if child.tipo_thumb is null
                 child.tipo_thumb = 2
-        console.log arr
         return arr
 
       # $scope.menuItems = [
