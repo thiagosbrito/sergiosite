@@ -7,6 +7,8 @@ angular.module 'sergio'
         views:
           '':
             templateUrl: 'app/features/main.html'
+            controller: ($scope, $state)->
+              $scope.st = $state
           'sidemenu@main':
             templateUrl:  'app/features/sidemenu/sidemenu.html'
             controller:   'SidemenuController'

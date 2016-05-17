@@ -8,7 +8,7 @@ angular.module 'sergio'
     '$log',
     ($animate, $state, $timeout, $modal, $stateParams, $log) ->
       return {
-        templateUrl: '/app/directives/gallery.html'
+        templateUrl: 'app/directives/gallery.html'
         scope:
           images: '=ngModel'
         link: (s, e, a)->
@@ -25,7 +25,7 @@ angular.module 'sergio'
               modalInstance = $modal.open(
                 animation: true
                 backdrop: 'static'
-                templateUrl: '/app/features/gallery/modal-template.html'
+                templateUrl: 'app/features/gallery/modal-template.html'
                 controller: 'GalleryModalController'
                 size: 'lg'
                 windowClass: 'testeClass'
