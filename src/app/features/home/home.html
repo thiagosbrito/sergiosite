@@ -1,13 +1,12 @@
-<div class="copyright">&copy; 2015 - Sergio Righini</div>
+<div class="copyright">&copy; {{$root.today | date: 'yyyy'}} - Sergio Righini</div>
 <!-- <div class="home-pics" ng-animate="'animate'" ng-style="{'background-image': 'url({{currentPic}})'}">
 	<div class="thumbs"></div>
 </div> -->
 
 <div class="home-pics pic-wrapper">
-	<div class="thumbs"></div>
-  	<figure
-  		class="pic-{{$index + 1}}"
+  <figure
   		ng-repeat="b in banners.banners track by $index"
-  		ng-style="{'background': 'url(http://sergiorighini.com/2016/img/banners/{{b.arquivo}}) center center'}">
+  		ng-style="{'background': 'url(http://sergiorighini.com/2016/img/banners/{{b.arquivo}}) center center'}"
+      ng-show="b.active">
 	</figure>
 </div>

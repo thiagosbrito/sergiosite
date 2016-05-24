@@ -1,10 +1,11 @@
-
-    <div class="col-lg-9" style="margin: 30px 10px">
-      <div class="col-md-3 contato-info" ng-repeat="item in contato" style="margin: 5px 0">
-        <strong>{{item.galeria}}</strong><br>
-        {{item.endereco}}<br>
-        {{item.cidade_pais}}<br>
-        phone: {{item.telefone}}<br>
-        {{item.site}}
-      </div>
-    </div>
+<div class="copyright">&copy; {{$root.today | date: 'yyyy'}} - Sergio Righini</div>
+<div class="col-lg-9" style="margin: 10px 10px">
+  <div class="col-md-3 contato-info" ng-repeat="item in contato" style="margin: 5px 0">
+    <strong>{{item.galeria}}</strong><br>
+    {{item.endereco}}<br>
+    {{item.cidade_pais}}<br>
+    phone: {{item.telefone}}<br>
+    <a class="site" href="{{item.site}}" style="color: #000;" ng-if="item.site">{{item.site}}</a>
+    <a class="email" href="mailto:{{item.email}}" ng-if="item.email && !item.site">{{item.email}}</a>
+  </div>
+</div>

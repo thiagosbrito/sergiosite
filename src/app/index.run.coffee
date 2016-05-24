@@ -19,3 +19,17 @@ angular.module 'sergio'
       console.log '$stateNotFound ' + unfoundState.to + '  - fired when a state cannot be found by its name.'
       console.log unfoundState, fromState, fromParams
       return
+    $rootScope.today = new Date();
+    $rootScope.requestFullScreen = ->
+      el = document.body
+      # Supports most browsers and their versions.
+      requestMethod = el.requestFullScreen or el.webkitRequestFullScreen or el.mozRequestFullScreen or el.msRequestFullScreen
+      if requestMethod
+      # Native full screen.
+        requestMethod.call el
+      else if typeof window.ActiveXObject != 'undefined'
+      # Older IE.
+        wscript = new ActiveXObject('WScript.Shell')
+        if wscript != null
+          wscript.SendKeys '{F11}'
+      return

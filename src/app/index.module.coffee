@@ -8,5 +8,6 @@ angular.module 'sergio', [
   'ui.router',
   'ui.bootstrap',
   'jkuri.gallery',
-  'angular-loading-bar'
+  'angular-loading-bar',
+  'FBAngular'
 ]

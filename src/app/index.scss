@@ -6,7 +6,9 @@
 @import "styles/general";
 @import "styles/sidemenu";
 @import "styles/home";
- 
+@import "styles/about";
+
+
 $navbar-inverse-link-color: #5AADBB;
 $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 $fa-font-path: "../../bower_components/font-awesome/fonts";
@@ -19,6 +21,9 @@ $fa-font-path: "../../bower_components/font-awesome/fonts";
 // bower:scss
 // endbower
 
+body {
+  width: 100% !important;
+}
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;

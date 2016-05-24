@@ -6,9 +6,10 @@ angular.module 'sergio'
     '$state',
     '$stateParams',
     'ApiService',
-    ($timeout, $scope, sidemenuProvider, $state, $stateParams, ApiService) ->
+    'Fullscreen',
+    ($timeout, $scope, sidemenuProvider, $state, $stateParams, ApiService, Fullscreen) ->
       'ngInject'
-
+      console.log 'Sidemenu controller'
       $scope.state = $state
 
       $scope.$broadcast 'fade-in'
@@ -19,6 +20,7 @@ angular.module 'sergio'
         (res)->
           $scope.menuItems = res.data.menuItems
           $scope.transformData $scope.menuItems
+          console.log $scope.menuItems
         (err)->
           console.log err
       )
@@ -31,81 +33,10 @@ angular.module 'sergio'
                 child.tipo_thumb = 2
         return arr
 
-      # $scope.menuItems = [
-      #   {
-      #     title:  'Paintings'
-      #     sref:   'paintings'
-      #     children: [
-      #       {
-      #         titlePt: 'Quadros que continuam nos outros'
-      #         titleEn: 'Paintings that continue on in others'
-      #         sref: 'continue'
-      #       },
-      #       {
-      #         titlePt: 'Série Um Bilhão'
-      #         titleEn: 'The One Billion Series'
-      #         sref: 'billion'
-      #       },
-      #       {
-      #         titlePt: 'Série Teoria das Cordas'
-      #         titleEn: 'The String Theory Series'
-      #         sref: 'string-theory'
-      #       },
-      #       {
-      #         titlePt: 'Obras de 1998 a 2003'
-      #         titleEn: 'Workd from 1998 to 2003'
-      #         sref: 'works'
-      #       }
-      #     ]
-      #   },
-      #   {
-      #     title: 'Photography'
-      #     sref: 'photography'
-      #     children: [
-      #       {
-      #         titlePt: 'Séries Dimensões'
-      #         titleEn: 'Dimensions Series'
-      #         sref: 'dimensions'
-      #       },
-      #       {
-      #         titlePt: 'Outras Séries'
-      #         titleEn: 'Other Series'
-      #         sref: 'other'
-      #       },
-      #       {
-      #         titlePt: 'Cidades'
-      #         titleEn: 'Cities'
-      #         sref: 'cities'
-      #         children: [
-      #           {
-      #             title: 'Sao Paulo'
-      #             sref: 'sp'
-      #           },
-      #           {
-      #             title: 'New York'
-      #             sref: 'ny'
-      #           },
-      #           {
-      #             title: 'Rome'
-      #             sref: 'rm'
-      #           },
-      #           {
-      #             title: 'Paris'
-      #             sref: 'pr'
-      #           },
-      #           {
-      #             title: 'Other cities'
-      #             sref: 'other'
-      #           }
-      #         ]
-      #       },
-      #       {
-      #         titlePt: 'Pessoas'
-      #         titleEn: 'People'
-      #         sref: 'people'
-      #       }
-      #     ]
-      #   }
-      # ]
+      $scope.goFullscreen = ->
+        console.log 'FullBitch'
+        Fullscreen.all()
+        return
 
-  ]
+      $scope.isFullScreen = false
+]

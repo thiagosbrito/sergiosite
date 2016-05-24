@@ -1,10 +1,15 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700);
+$roboto: 'Roboto Slab', serif;
+$openSans: 'Open Sans', sans-serif;
+
 .about-holder {
   width: 100% !important;
   height: 100% !important;
   position: absolute;
-  overflow: hidden;
+  overflow: auto;
   top: 0;
   left: 0;
   background-color: transparent;
-  font-size: 12px;
+  font-size: 13px;
+  font-family: $openSans;
 }

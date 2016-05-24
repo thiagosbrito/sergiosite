@@ -22,22 +22,23 @@ angular.module 'sergio'
               s.sParam.limit = 24
 
           s.openModal = (image)->
-              modalInstance = $modal.open(
-                animation: true
-                backdrop: 'static'
-                templateUrl: 'app/features/gallery/modal-template.html'
-                controller: 'GalleryModalController'
-                size: 'lg'
-                windowClass: 'testeClass'
-                resolve: items: ->
-                  return image
-              )
-              modalInstance.result.then ((selectedItem) ->
-                $scope.selected = selectedItem
-                return
-              ), ->
-                $log.info 'Modal dismissed at: ' + new Date
-                return
+#            console.log image
+            modalInstance = $modal.open(
+              animation: true
+              backdrop: 'static'
+              templateUrl: 'app/features/gallery/modal-template.html'
+              controller: 'GalleryModalController'
+              size: 'lg'
+              windowClass: 'testeClass'
+              resolve: items: ->
+                return image
+            )
+            modalInstance.result.then ((selectedItem) ->
+              $scope.selected = selectedItem
               return
+            ), ->
+              $log.info 'Modal dismissed at: ' + new Date
+              return
+#            s.showWindow = true
       }
     ]

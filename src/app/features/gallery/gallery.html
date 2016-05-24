@@ -1,7 +1,13 @@
+<div class="copyright">&copy; {{$root.today | date: 'yyyy'}} - Sergio Righini</div>
 <div class="row">
   <div class="gallery-holder">
     <div class="col-lg-9 col-lg-offset-3">
-      <tsb-gallery ng-model="images"></tsb-gallery>
+      <!--<tsb-gallery ng-model="images"></tsb-gallery>-->
+      <ul class="holder-thumbs" style="margin-top: 12px; margin-right 0px">
+        <li ng-repeat="img in images | limitTo: limit" ng-class="{'margin-lg': img.tipoThumb == '1', 'margin-xl': img.tipoThumb == '2'}">
+          <img ng-src="http://sergiorighini.com/2016/img/{{img.tipo}}/tmb/{{img.img_thumb}}" alt="">
+        </li>
+      </ul>
     </div>
   </div>
 </div>

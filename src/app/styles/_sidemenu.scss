@@ -1,7 +1,7 @@
 .sidemenu {
 	position: fixed;
 	z-index: 2;
-	top: 95px;
+	top: 53px;
 	left: 5px;
 	opacity: 1;
 	* {
@@ -27,7 +27,7 @@
 	}
 	.section-nav {
 		position: fixed;
-		bottom: 40px;
+		bottom: 20px;
 		a {
 			font-family: 'Arial';
 			text-transform: uppercase;
@@ -63,9 +63,26 @@
 			font-size: 12px;
 			line-height: 0;
 			margin-bottom: -10px;
-			&:last-child(){
+			&:last-child(0){
 				margin-bottom: 10px;
 			}
 		}
 	}
+}
+.btn-action-gallery {
+  width: 100%;
+  height: 32px;
+  padding: 0;
+  position: fixed;
+  bottom: 20px;
+  ul {
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+    padding-left: 12px;
+    li {
+      float: left;
+      margin-right: 5px;
+    }
+  }
 }

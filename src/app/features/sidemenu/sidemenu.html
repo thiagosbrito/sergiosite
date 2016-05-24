@@ -4,13 +4,13 @@
       <accordion-group heading="{{item.title}}" panel-class="sidemenu-main-item" ng-repeat="item in menuItems track by $index">
         <ul class="nav nav-pills nav-stacked">
           <li ng-repeat="child in item.children track by $index" class="children">
-            <a ui-sref="main.gallery({tipo: item.sref, id: child.id, tipoThumb: child.tipo_thumb})">
+            <a ui-sref="main.gallery({tipo: item.sref, id: child.id, tipoThumb: child.tipo_thumb, page: child.pages})">
               {{child.titlePt}}<br/>
               {{child.titleEn}}
             </a>
             <ul ng-if="child.children" class="nav nav-pills nav-stacked">
               <li ng-repeat="child in child.children" class="c-children">
-                <a ui-sref="main.gallery({tipo: item.sref, id: child.id})">
+                <a ui-sref="main.gallery({tipo: item.sref, id: child.id, pages: child.pages})">
                   {{child.titleEn}}
                   <!-- {{child.titlePt}}<br> -->
                 </a>
@@ -47,6 +47,17 @@
       <li><a ui-sref="main.contact">Contact</a></li>
       <li><a ui-sref="main.home">Home</a></li>
       <li><a ui-sref="main.about">About me</a></li>
+      <li ng-if="state.current.name == 'main.contact'">
+        <a href="https://www.facebook.com/sergio.righini?fref=ts" target="_new" class="btn-facebook">
+          <img src="../../../assets/images/icon-facebook.png" alt="" style="width: 32px; height: 32px;">
+        </a>
+      </li>
+      <li ng-if="state.current.name == 'main.view'">
+        <a ng-click="$root.requestFullScreen()" style="width: 30px; float: left; margin-right: 4px;"><img src="../../../assets/images/btn-full.png" style="width: 30px; float:left" alt=""></a>
+        <a href="" style="width: 30px; float: left;"><img src="../../../assets/images/btn-thumbs.png" style="width: 30px; float: left" alt=""></a>
+      </li>
     </ul>
+
   </div>
+
 </nav>
