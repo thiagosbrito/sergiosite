@@ -10,6 +10,7 @@ angular.module 'sergio'
       console.log arguments
       return
     $rootScope.$on '$stateChangeSuccess', (event, toState, toParams, fromState, fromParams) ->
+      $rootScope.previousState = fromState
       console.log '$stateChangeSuccess to ' + toState.name + '- fired once the state transition is complete.'
       return
     $rootScope.$on '$viewContentLoaded', (event) ->

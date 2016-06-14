@@ -1,5 +1,5 @@
 angular.module 'sergio'
-.controller 'GalleryController',[
+.controller 'ViewController',[
   '$timeout',
   '$scope',
   'sidemenuProvider',
@@ -10,6 +10,19 @@ angular.module 'sergio'
   ($timeout, $scope, sidemenuProvider, $state, $stateParams, $modal, ApiService) ->
     'ngInject'
 
-    console.log 'View'
+    $scope.$on 'closeThumbs', ()->
+      console.log 'Worked'
 
+    $scope.showThumbs = false;
+
+    $scope.getThumbs = ()->
+      $scope.showThumbs = true;
+    $scope.image = $stateParams.image
+
+    console.log $scope.image
+
+    $scope.goToPrev = ()->
+      $scope.image = $scope.image.prev
+    $scope.goToNext = ()->
+      $scope.image = $scope.image.next
 ]

@@ -1,0 +1,31 @@
+<div class="copyright">Copyright &copy; {{$root.today | date: 'yyyy'}} - Sergio Righini</div>
+<div class="row">
+  <div class="gallery-holder">
+    <div class="col-lg-9 col-lg-offset-3" style="height: 100%">
+      <div class="prev" style="width: 20px; height: 100%; position: absolute;left: 0;bottom:20px">
+        <a href="" style="bottom: 10px; position: absolute; z-index: 999" ng-click="goToPrev()">
+          <img src="assets/images/seta-esq.png" alt="">
+        </a>
+      </div>
+      <div class="image-holder" style="position: fixed; right: 26px;">
+        <img ng-src="http://sergiorighini.com/2016/img/{{image.tipo}}/{{image.img_grande}}" alt="" class="img-responsive" style="height: 100%">
+        <div class="caption">
+          <p class="text-right">
+            {{image.primeira_linha}}<br>
+            {{image.segunda_linha}}
+          </p>
+        </div>
+        <div class="thumb-quick-view" ng-show="showThumbs">
+          <ul>
+            <li ng-repea="tb in thumbs">{{tb.id}}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="next" style="width: 20px; height: 100%; position: absolute;right: 10px;bottom: 20px">
+        <a href="" style="bottom: 10px; position: absolute" ng-click="goToNext()">
+          <img src="assets/images/seta-dir.png" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

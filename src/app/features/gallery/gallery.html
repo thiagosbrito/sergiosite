@@ -1,13 +1,29 @@
-<div class="copyright">&copy; {{$root.today | date: 'yyyy'}} - Sergio Righini</div>
+<div class="copyright">Copyright &copy; {{$root.today | date: 'yyyy'}} - Sergio Righini</div></div>
+{{$stateParams}}
 <div class="row">
   <div class="gallery-holder">
-    <div class="col-lg-9 col-lg-offset-3">
-      <!--<tsb-gallery ng-model="images"></tsb-gallery>-->
-      <ul class="holder-thumbs" style="margin-top: 12px; margin-right 0px">
-        <li ng-repeat="img in images | limitTo: limit" ng-class="{'margin-lg': img.tipoThumb == '1', 'margin-xl': img.tipoThumb == '2'}">
-          <img ng-src="http://sergiorighini.com/2016/img/{{img.tipo}}/tmb/{{img.img_thumb}}" alt="">
-        </li>
-      </ul>
+    <div class="col-lg-9 col-lg-offset-3 col-sm-12 visible-md visible-lg" style="height: 100%">
+      <div class="prev" style="width: 20px; height: 100%; position: absolute;left: 0;bottom:20px">
+        <a href="" style="bottom: 10px; position: absolute; z-index: 999" ui-sref="main.gallery.thumbs({tipo: $stateParams.tipo, id: $stateParams.id, tipoThumb: $stateParams.tipoThumb, page: curPage - 1})">
+          <img src="assets/images/seta-esq.png" alt="">
+        </a>
+      </div>
+      <div class="image-holder" style="position: fixed; right: 18px;">
+        <ul class="holder-thumbs" style="margin-top: 25px;">
+          <li
+            ng-repeat="img in images | limitTo: limit"
+            ng-class="{'margin-lg': img.tipoThumb == '1', 'margin-xl': img.tipoThumb == '2'}"
+            ng-click="goToView(img)">
+            <img ng-src="http://sergiorighini.com/2016/img/{{img.tipo}}/tmb/{{img.img_thumb}}" alt="" style="width:95%; height: 95%">
+          </li>
+        </ul>
+      </div>
+      <div class="next" style="width: 20px; height: 100%; position: absolute;right: 14px;bottom: 20px">
+        <a href="" style="bottom: 10px; position: absolute"  ui-sref="main.gallery.thumbs({tipo: $stateParams.tipo, id: $stateParams.id, tipoThumb: $stateParams.tipoThumb, page: curPage + 1})">
+
+          <img src="assets/images/seta-dir.png" alt="">
+        </a>
+      </div>
     </div>
   </div>
 </div>

@@ -7,10 +7,13 @@ angular.module 'sergio'
     '$stateParams',
     'ApiService',
     'Fullscreen',
-    ($timeout, $scope, sidemenuProvider, $state, $stateParams, ApiService, Fullscreen) ->
+    '$rootScope',
+    ($timeout, $scope, sidemenuProvider, $state, $stateParams, ApiService, Fullscreen, $rootScope) ->
       'ngInject'
-      console.log 'Sidemenu controller'
+
       $scope.state = $state
+      $scope.closeThumbs = ()->
+        window.history.back()
 
       $scope.$broadcast 'fade-in'
 

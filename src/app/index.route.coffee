@@ -24,7 +24,12 @@ angular.module 'sergio'
         controller: 'LandingController'
 
       .state 'main.gallery',
-        url: '/gallery/:tipoThumb/:tipo/:id'
+        url: '/gallery'
+        template: '<div ui-view=""></div>'
+
+
+      .state 'main.gallery.thumbs',
+        url: '/thumb/:tipoThumb/:tipo/:id/page/:page'
         templateUrl: 'app/features/gallery/gallery.html'
         controller: 'GalleryController'
         resolve     :
@@ -48,7 +53,34 @@ angular.module 'sergio'
                     console.log err
                 )
           ]
-          
+
+      .state 'main.gallery.view',
+        url: '/image/:tipoThumb/:tipo/:id/page/:page'
+        templateUrl: 'app/features/gallery/view.html'
+        controller: 'ViewController'
+        params:
+          image: {}
+        resolve     :
+          request: [
+            'ApiService',
+            '$stateParams',
+            '$state',
+            (ApiService, $stateParams, $state) ->
+              if $stateParams.id
+                ApiService.getRequest('imgs_' + $stateParams.tipo, $stateParams.id, 1).then(
+                  (res)->
+                    return res.data['imgs_'+$stateParams.tipo]
+                  (err)->
+                    console.log err
+                )
+              else
+                ApiService.getRequest($stateParams.tipo).then(
+                  (res)->
+                    return res.data[$stateParams.tipo]
+                  (err)->
+                    console.log err
+                )
+          ]
 
       .state 'main.contact',
         url: '/contact'

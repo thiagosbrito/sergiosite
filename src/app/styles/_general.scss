@@ -30,3 +30,18 @@
 .animate-enter.animate-enter-active {
 	opacity: 1;
 }
+.contato-info {
+  font-size:12px;
+  strong {
+    font-size: 14px;
+  }
+  a,
+  a[href^="mailto"]{
+    color: #333 !important;
+    font-weight: bolder;
+    font-style: italic;
+  }
+}
+.btn-facebook {
+  margin-top: -10px
+}
