@@ -13,7 +13,6 @@ angular.module 'sergio'
       $scope.curPage = 1
       $scope.pages = 0
 
-
       $scope.$watch 'curPage',(value, oldValue)->
         if value > $scope.pages
           value = 1
@@ -62,6 +61,9 @@ angular.module 'sergio'
           (res)->
             $scope.images = res.data['imgs_' + $stateParams.tipo]
             $scope.transformObj $scope.images
+            console.log $scope.images
+            $scope.curPic = 0;
+            $scope.maxPic = $scope.images.length;
             return
           (err)->
             console.log err
@@ -98,6 +100,15 @@ angular.module 'sergio'
             img.prev = images[key - 1]
             img.next = images[key + 1]
         return images
+
+      $scope.goToNext = ()->
+        $scope.curPic = $scope.curPic + 1;
+        if $scope.curPic > $scope.images.length
+          $scope.curPic = 0
+      $scope.goToPrev = ()->
+        $scope.curPic = $scope.curPic - 1;
+        if $scope.curPic == 0
+          $scope.curPic = $scope.images.length
 
 
   ]

@@ -1,5 +1,4 @@
-<div class="copyright">Copyright &copy; {{$root.today | date: 'yyyy'}} - Sergio Righini</div></div>
-{{$stateParams}}
+<div class="copyright">Copyright &copy; {{$root.today | date: 'yyyy'}} - Sergio Righini</div>
 <div class="row">
   <div class="gallery-holder">
     <div class="col-lg-9 col-lg-offset-3 col-sm-12 visible-md visible-lg" style="height: 100%">
@@ -25,5 +24,22 @@
         </a>
       </div>
     </div>
+  </div>
+</div>
+<div class="row visible-xs visible-sm">
+  <div class="container-fluid">
+
+      <img
+        ng-src="http://sergiorighini.com/2016/img/{{images[curPic].tipo}}/{{images[curPic].img_grande}}"
+        alt=""
+        class="img-responsive"
+        style="height: 100%; position: absolute; top: 0; right: 0"
+        ng-swipe-right="goToPrev()"
+        ng-swipe-left="goToNext()">
+    <p class="text-right" style="    position: absolute; bottom: 0; right: 9px; color: #fff;">
+      {{images[curPic].primeira_linha}}<br>
+      {{images[curPic].segunda_linha}}
+    </p>
+
   </div>
 </div>
