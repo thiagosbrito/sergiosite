@@ -4,13 +4,13 @@
       <accordion-group heading="{{item.title}}" panel-class="sidemenu-main-item" ng-repeat="item in menuItems track by $index">
         <ul class="nav nav-pills nav-stacked">
           <li ng-repeat="child in item.children track by $index" class="children">
-            <a ui-sref="main.gallery.thumbs({tipo: item.sref, id: child.id, tipoThumb: child.tipo_thumb, page: 1})">
+            <a ui-sref="main.gallery.thumbs({tipo: child.sref, id: child.id, tipoThumb: child.tipo_thumb, page: 1})" ng-class="{'not-active': child.sref == 'cities'}">
               {{child.titlePt}}<br/>
               {{child.titleEn}}
             </a>
             <ul ng-if="child.children" class="nav nav-pills nav-stacked">
               <li ng-repeat="child in child.children" class="c-children">
-                <a ui-sref="main.gallery.thumbs({tipo: item.sref, id: child.id, pages: 1})">
+                <a ui-sref="main.gallery.thumbs({tipo: child.sref, id: child.id, pages: 1})">
                   {{child.titleEn}}
                   <!-- {{child.titlePt}}<br> -->
                 </a>
@@ -34,14 +34,16 @@
       <li ng-if="state.current.name == 'main.gallery.view'" style="visible: hidden">
         <a
           ng-click="$root.requestFullScreen()"
-          style="float: left; margin-right: 4px;">
+          class="actionButton"
+          style="float: left; margin-right: 4px;cursor: pointer">
           <img src="assets/images/btn-full.png"
                style="width: 30px; float:left" alt="">
           <span style="float: left; padding-top: 8px; padding-left: 4px; text-transform: lowercase">Full screen</span>
         </a>
         <a
           ng-click="closeThumbs()"
-          style=" float: left;">
+          class="actionButton"
+          style=" float: left; cursor: pointer">
           <img src="assets/images/btn-thumbs.png"
                  style="width: 30px; float: left" alt="">
           <span style="float: left; padding-top: 8px; padding-left: 4px; text-transform: lowercase">Thumbs</span>
@@ -83,20 +85,22 @@
         <li><a ui-sref="main.about">About me</a></li>
         <li ng-if="state.current.name == 'main.contact'">
           <a href="https://www.facebook.com/sergio.righini?fref=ts" target="_new" class="btn-facebook">
-            <img src="assets/images/icon-facebook.png" alt="" style="width: 32px; height: 32px;">
+            <img src="assets/images/icon-facebook.png" alt="">
           </a>
         </li>
         <li ng-if="state.current.name == 'main.gallery.view'" style="visible: hidden">
           <a
             ng-click="$root.requestFullScreen()"
-            style="float: left; margin-right: 4px;">
+            class="actionButton"
+            style="float: left; margin-right: 4px; cursor: pointer;">
             <img src="assets/images/btn-full.png"
                  style="width: 30px; float:left" alt="">
             <span style="float: left; padding-top: 8px; padding-left: 4px; text-transform: lowercase">Full screen</span>
           </a>
           <a
             ng-click="closeThumbs()"
-            style=" float: left;">
+            class="actionButton"
+            style=" float: left; cursor: pointer">
             <img src="assets/images/btn-thumbs.png"
                  style="width: 30px; float: left" alt="">
             <span style="float: left; padding-top: 8px; padding-left: 4px; text-transform: lowercase">Thumbs</span>

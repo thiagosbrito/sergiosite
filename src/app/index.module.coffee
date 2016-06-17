@@ -9,5 +9,6 @@ angular.module 'sergio', [
   'ui.bootstrap',
   'jkuri.gallery',
   'angular-loading-bar',
-  'FBAngular'
+  'FBAngular',
+  'ngScrollbars'
 ]

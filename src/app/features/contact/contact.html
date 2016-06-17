@@ -1,11 +1,11 @@
 <div class="copyright">Copyright &copy; {{$root.today | date: 'yyyy'}} - Sergio Righini</div>
-<div class="col-lg-9 visible-lg visible-md" style="margin: 10px 10px">
+<div class="col-lg-9 visible-lg visible-md contato-holder" ng-scrollbars ng-scrollbars-config="config">
   <div class="col-md-3 contato-info" ng-repeat="item in contato" style="margin: 10px 0">
     <strong>{{item.galeria}}</strong><br>
     {{item.endereco}}<br>
     {{item.cidade_pais}}<br>
     phone: {{item.telefone}}<br>
-    <a class="site" href="{{item.site}}" style="color: #000;" ng-if="item.site">{{item.site}}</a>
+    <a class="site" target="_blank" href="{{item.site}}" style="color: #000;" ng-if="item.site">{{item.site}}</a>
     <a class="email" href="mailto:{{item.email}}" ng-if="item.email && !item.site">{{item.email}}</a>
   </div>
 </div>
@@ -15,7 +15,8 @@
     {{item.endereco}}<br>
     {{item.cidade_pais}}<br>
     phone: {{item.telefone}}<br>
-    <a class="site" href="{{item.site}}" style="color: #000;" ng-if="item.site">{{item.site}}</a>
+    <a class="site" href="{{item.site}}" target="_blank" style="color: #000;" ng-if="item.site">{{item.site}}</a>
     <a class="email" href="mailto:{{item.email}}" ng-if="item.email && !item.site">{{item.email}}</a>
   </div>
 </div>
+<div style="width:369px;height:195px;position: absolute;z-index:1;top: 35%; opacity: .35; left: 50%; margin-left: -160px"><img src="assets/images/logo-sem-sergio.png" alt="" style="width: 100%"></div>

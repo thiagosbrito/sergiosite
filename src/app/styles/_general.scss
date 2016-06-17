@@ -16,7 +16,7 @@
 	float: right;
 	position: absolute;
 	top: 5px;
-	right: 5px;
+	right: 50px;
 	z-index: 10;
 	color: #fff;
 }
@@ -32,6 +32,7 @@
 }
 .contato-info {
   font-size:12px;
+  margin-bottom: 50px !important;
   strong {
     font-size: 14px;
   }
@@ -43,5 +44,27 @@
   }
 }
 .btn-facebook {
-  margin-top: -10px
+  margin-top: 0px;
+  img {
+    width: 24px !important;
+    height: 24px !important;
+  }
+}
+.not-active {
+  pointer-events: none;
+  cursor: default;
+}
+.contato-holder {
+  height: 700px;
+  overflow: hidden;
+  margin-left: 120px;
+  margin-top: 30px;
+  z-index: 999;
+}
+.actionButton {
+  &:hover {
+    span {
+      color: #23527c !important;
+    }
+  }
 }

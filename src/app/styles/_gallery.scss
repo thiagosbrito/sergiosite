@@ -38,18 +38,30 @@ $openSans: 'Open Sans', sans-serif;
 
 .holder-thumbs {
   list-style: none;
+  margin-left: -40px;
+  height: 100%;
   padding: 0;
   clear: both;
   box-sizing: border-box;
   li {
     float: left;
     box-sizing: border-box;
-    margin: 3px;
+    overflow: hidden;
     &.margin-lg {
-      margin: 5px 0px;
+      margin: 6px;
+      width: 32%;
+      img {
+        width: 100%;
+        margin: 0 auto;
+      }
     }
     &.margin-xl {
-      margin: 8px 5px;
+      margin: 5px;
+      width: 15.5%;
+      img {
+        width: 100%;
+        margin: 0 auto;
+      }
     }
   }
 }

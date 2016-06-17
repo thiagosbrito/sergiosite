@@ -10,6 +10,9 @@ angular.module 'sergio'
   ($timeout, $scope, sidemenuProvider, $state, $stateParams, $modal, ApiService) ->
     'ngInject'
 
+
+    $scope.$sp = $stateParams
+
     $scope.$on 'closeThumbs', ()->
       console.log 'Worked'
 
