@@ -42,3 +42,15 @@ angular.module 'sergio'
 #            s.showWindow = true
       }
     ]
+  .directive 'escClear', [
+    '$timeout'
+    '$parse'
+    ($timeout, $parse) ->
+      link: (scope, element, attributes, ctrl) ->
+        element.bind 'keydown', (e) ->
+          if e.keyCode == $.ui.keyCode.ESCAPE
+            console.log 'Esc pressed'
+          return
+        return
+
+  ]

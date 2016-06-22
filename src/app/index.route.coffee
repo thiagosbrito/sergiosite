@@ -60,6 +60,7 @@ angular.module 'sergio'
         controller: 'ViewController'
         params:
           image: {}
+          tipoId: null
         resolve     :
           request: [
             'ApiService',

@@ -1,5 +1,5 @@
 angular.module 'sergio'
-  .run ($log, $rootScope) ->
+  .run ($log, $rootScope, Fullscreen) ->
     'ngInject'
     $log.debug 'runBlock end'
     $rootScope.$on '$stateChangeStart', (event, toState, toParams, fromState, fromParams) ->
@@ -21,16 +21,11 @@ angular.module 'sergio'
       console.log unfoundState, fromState, fromParams
       return
     $rootScope.today = new Date();
+    
     $rootScope.requestFullScreen = ->
-      el = document.body
-      # Supports most browsers and their versions.
-      requestMethod = el.requestFullScreen or el.webkitRequestFullScreen or el.mozRequestFullScreen or el.msRequestFullScreen
-      if requestMethod
-      # Native full screen.
-        requestMethod.call el
-      else if typeof window.ActiveXObject != 'undefined'
-      # Older IE.
-        wscript = new ActiveXObject('WScript.Shell')
-        if wscript != null
-          wscript.SendKeys '{F11}'
-      return
+      if Fullscreen.isEnabled()
+         Fullscreen.cancel()
+      else
+         Fullscreen.all()
+
+      

@@ -1,4 +1,5 @@
 <div class="copyright">Copyright &copy; {{$root.today | date: 'yyyy'}} - Sergio Righini</div>
+
 <div class="row" ng-if="$sp.tipo != 'opera'">
   <div class="gallery-holder">
     <div class="col-lg-9 col-lg-offset-3" style="height: 100%">
@@ -36,7 +37,7 @@
 </div>
 <div class="row" ng-if="$sp.tipo == 'opera'">
   <div class="gallery-holder">
-    <div class="col-lg-8 col-lg-offset-4 pic-holder" ng-style="{'background-image': 'url(http://sergiorighini.com/2016/img/{{image.tipo}}/{{image.img_grande}})','background-position':'350px -50px','background-attachment':'fixed'}">
+    <div class="col-lg-8 col-lg-offset-4 pic-holder" ng-style="{'background-image': 'url(http://sergiorighini.com/2016/img/{{image.tipo}}/{{image.img_grande}})','background-position':'350px -50px','background-attachment':'fixed','height':'100%'}">
       <div class="col-lg-6 hidden-xs hidden-sm about-text-holder" ng-bind-html="image.obra_1" style="margin-left: -110px; color: #fff"></div>
       <div class="col-lg-6 hidden-xs hidden-sm about-text-holder" ng-bind-html="image.obra_2" style="color: #FFF"></div>
     </div>

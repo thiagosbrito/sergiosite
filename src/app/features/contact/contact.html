@@ -1,22 +1,29 @@
 <div class="copyright">Copyright &copy; {{$root.today | date: 'yyyy'}} - Sergio Righini</div>
-<div class="col-lg-9 visible-lg visible-md contato-holder" ng-scrollbars ng-scrollbars-config="config">
-  <div class="col-md-3 contato-info" ng-repeat="item in contato" style="margin: 10px 0">
-    <strong>{{item.galeria}}</strong><br>
-    {{item.endereco}}<br>
-    {{item.cidade_pais}}<br>
-    phone: {{item.telefone}}<br>
-    <a class="site" target="_blank" href="{{item.site}}" style="color: #000;" ng-if="item.site">{{item.site}}</a>
-    <a class="email" href="mailto:{{item.email}}" ng-if="item.email && !item.site">{{item.email}}</a>
+<div class="row">
+  <div class="col-lg-9 contato-holder" ng-scrollbars ng-scrollbars-config="config">
+    <div class="col-md-3 contato-info" ng-repeat="item in contato" style="margin: 10px 0">
+      <strong>{{item.galeria}}</strong><br>
+      {{item.endereco}}<br>
+      {{item.cidade_pais}}<br>
+      phone: {{item.telefone}}<br>
+      <a class="site" target="_blank" href="{{item.site}}" style="color: #000;" ng-if="item.site">{{item.site}}</a>
+      <a class="email" href="mailto:{{item.email}}" ng-if="item.email && !item.site">{{item.email}}</a>
+    </div>
+    <div style="width:369px;height:195px;position: absolute;z-index:1;top: 35%; opacity: .35; left: 50%; margin-left: -160px"><img src="assets/images/logo-sem-sergio.png" alt="" style="width: 100%"></div>
+
   </div>
 </div>
-<div class="col-lg-9 visible-sm visible-xs" style="margin: 17px 25px; height: 70%;overflow-x: hidden">
-  <div class="col-md-3 col-sm-6 col-xs-12 contato-info" ng-repeat="item in contato" style="margin: 10px 0">
-    <strong>{{item.galeria}}</strong><br>
-    {{item.endereco}}<br>
-    {{item.cidade_pais}}<br>
-    phone: {{item.telefone}}<br>
-    <a class="site" href="{{item.site}}" target="_blank" style="color: #000;" ng-if="item.site">{{item.site}}</a>
-    <a class="email" href="mailto:{{item.email}}" ng-if="item.email && !item.site">{{item.email}}</a>
+<div class="row visible-sm visible-xs">
+  <div class="contato-holder">
+    <div class="col-sm-6 contato-info" ng-repeat="item in contato">
+      <strong>{{item.galeria}}</strong><br>
+      {{item.endereco}}<br>
+      {{item.cidade_pais}}<br>
+      phone: {{item.telefone}}<br>
+      <a class="site" href="{{item.site}}" target="_blank" style="color: #000;" ng-if="item.site">{{item.site}}</a>
+      <a class="email" href="mailto:{{item.email}}" ng-if="item.email && !item.site">{{item.email}}</a>
+    </div>
   </div>
+  <div style="width:369px;height:195px;position: absolute;z-index:1;top: 35%; opacity: .35; left: 50%; margin-left: -160px"><img src="assets/images/logo-sem-sergio.png" alt="" style="width: 100%"></div>
+
 </div>
-<div style="width:369px;height:195px;position: absolute;z-index:1;top: 35%; opacity: .35; left: 50%; margin-left: -160px"><img src="assets/images/logo-sem-sergio.png" alt="" style="width: 100%"></div>

@@ -9,15 +9,10 @@ angular.module 'sergio'
     'ApiService',
     ($timeout, $scope, sidemenuProvider, $state, $stateParams, $modal, ApiService) ->
       'ngInject'
-      $scope.$stateParams = $stateParams
-      $scope.curPage = 1
-      $scope.pages = 0
 
-      $scope.$watch 'curPage',(value, oldValue)->
-        if value > $scope.pages
-          value = 1
-        if value <= 0
-          value = $scope.curPage
+      $scope.$stateParams = $stateParams
+      $scope.curPage = $stateParams.page
+      
       $scope.getPageNum = ()->
         ApiService.getRequest('menu_itens').then(
           (res)->
@@ -30,29 +25,38 @@ angular.module 'sergio'
       $scope.getPageNum()
       $scope.getPages = (items)->
         angular.forEach items,(value)->
-          if value.sref is $stateParams.tipo
+          if value.sref is $stateParams.tipo or value.sref == 'photography'
             angular.forEach value.children,(children)->
               if children.id is $stateParams.id
                 $scope.pages = children.pages
+              if children.sref is 'cities'
+                angular.forEach children.children,(c)->
+                  if c.id is $stateParams.id
+                    $scope.pages = c.pages
+
             return
         return
 
+      $scope.definePage = (page)->
+        if page < 1
+          page = 1
+          $scope.curPage = page
+        if page > $scope.pages
+          page = $scope.pages
+          $scope.curPage = page
+        $scope.curPage = page
+        return page
 
-      $scope.nextPage = ()->
-        nextPage = $scope.curPage + 1
-        if nextPage > $scope.pages
-          nextPage = 1
+      $scope.next = ()->
+        $state.go 'main.gallery.thumbs',{tipo: $stateParams.tipo, id: $stateParams.id, tipoThumb: $stateParams.tipoThumb, page: $scope.definePage parseInt($scope.curPage) + 1}
+        return
 
-        $state.go 'main.gallery.thumbs',{tipoThumb:$stateParams.tipoThumb,tipo:$stateParams.tipo,id:$stateParams.id,page:nextPage}
+      $scope.prev = ()->
+        $state.go 'main.gallery.thumbs',{tipo: $stateParams.tipo, id: $stateParams.id, tipoThumb: $stateParams.tipoThumb, page: $scope.definePage parseInt($scope.curPage) - 1}
         return
-      $scope.prevPage = ()->
-        nextPage = $scope.curPage - 1
-        if nextPage is 0
-          nextPage = $scope.pages
-        $state.go 'main.gallery.thumbs',{tipoThumb: $stateParams.tipoThumb,tipo:$stateParams.tipo,id:$stateParams.id,page:nextPage}
-        return
+
       $scope.goToView = (img)->
-        $state.go 'main.gallery.view',{tipoThumb: img.tipoThumb, tipo: img.tipo, id: img.id, page: 1, image: img}
+        $state.go 'main.gallery.view',{tipoThumb: img.tipoThumb, tipo: img.tipo, id: img.id, page: 1, image: img, tipoId: $stateParams.id}
         return
 
       $scope.getImages = (tipo, id, page)->

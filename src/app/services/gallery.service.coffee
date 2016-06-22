@@ -9,7 +9,7 @@ angular.module 'sergio'
           if pag
             pag = pag
           else
-            pag = 1
+            pag = 0
           $http
             url    : base_url + type + '&cod=' + id + '&pag=' + pag
             method : 'GET'

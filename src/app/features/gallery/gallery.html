@@ -1,9 +1,9 @@
-<div class="copyright">Copyright &copy; {{$root.today | date: 'yyyy'}} - Sergio Righini</div>
+<div class="copyright">Copyright &copy; {{$root.today | date: 'yyyy'}} - Sergio Righini - pages {{pages}}</div>
 <div class="row">
   <div class="gallery-holder">
     <div class="col-lg-10 col-lg-offset-2 visible-md visible-lg" style="height: 100%">
-      <div class="prev" style="width: 20px; height: 100%; position: absolute;left: 77px;bottom:20px">
-        <a href="" style="bottom: 10px; position: absolute; z-index: 999" ui-sref="main.gallery.thumbs({tipo: $stateParams.tipo, id: $stateParams.id, tipoThumb: $stateParams.tipoThumb, page: curPage - 1})">
+      <div class="prev" style="width: 20px; height: 100%; position: absolute;left: 77px;bottom:20px" ng-show="pages > 1" ng-if="curPage != 1" ng-click="prev()">
+        <a href="" style="bottom: 10px; position: absolute; z-index: 999">
           <img src="assets/images/seta-esq.png" alt="">
         </a>
       </div>
@@ -11,15 +11,14 @@
         <ul class="holder-thumbs" style="margin-top: 25px;">
           <li
             ng-repeat="img in images | limitTo: limit"
-            ng-class="{'margin-lg': img.tipoThumb == '1', 'margin-xl': img.tipoThumb == '2'}"
+            ng-class="{'margin-lg': img.tipoThumb == 1, 'margin-xl': img.tipoThumb == 2}"
             ng-click="goToView(img)">
             <img ng-src="http://sergiorighini.com/2016/img/{{img.tipo}}/tmb/{{img.img_thumb}}" alt="">
           </li>
         </ul>
       </div>
-      <div class="next" style="width: 20px; height: 100%; position: absolute;right: 6px;bottom: 20px">
-        <a href="" style="bottom: 10px; position: absolute"  ui-sref="main.gallery.thumbs({tipo: $stateParams.tipo, id: $stateParams.id, tipoThumb: $stateParams.tipoThumb, page: curPage + 1})">
-
+      <div class="next" style="width: 20px; height: 100%; position: absolute;right: 6px;bottom: 20px" ng-show="pages > 1" ng-if="curPage != pages" ng-click="next()">
+        <a href="" style="bottom: 10px; position: absolute">
           <img src="assets/images/seta-dir.png" alt="">
         </a>
       </div>
@@ -28,17 +27,30 @@
 </div>
 <div class="row visible-xs visible-sm">
   <div class="container-fluid">
+      
+      
+      <div class="col-xs-12 concepts-text-wrapper" ng-if="images[curPic].obra_1" 
+        ng-swipe-right="goToPrev()"
+        ng-swipe-left="goToNext()">
+        <p ng-bind-html="images[curPic].obra_1"></p>
+        <p ng-bind-html="images[curPic].obra_2"></p>
+      </div>
+      
+      
 
       <img
         ng-src="http://sergiorighini.com/2016/img/{{images[curPic].tipo}}/{{images[curPic].img_grande}}"
         alt=""
-        class="img-responsive"
-        style="height: 100%; position: absolute; top: 0; right: 0"
+        style="height: 100%; position: fixed; top: 0; left: 50%;margin-left: -50%"
         ng-swipe-right="goToPrev()"
         ng-swipe-left="goToNext()">
     <p class="text-right" style="    position: absolute; bottom: 0; right: 9px; color: #fff;">
-      {{images[curPic].primeira_linha}}<br>
-      {{images[curPic].segunda_linha}}
+      <span ng-if="images[curPic].primeira_linha">
+        {{images[curPic].primeira_linha}}<br>
+        {{images[curPic].segunda_linha}}
+      </span>
+
+      <a href="{{images[curPic].link}}" target="_blank" ng-if="images[curPic].link">{{images[curPic].texto_link}}
     </p>
 
   </div>

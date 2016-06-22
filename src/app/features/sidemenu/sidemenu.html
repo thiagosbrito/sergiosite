@@ -10,7 +10,7 @@
             </a>
             <ul ng-if="child.children" class="nav nav-pills nav-stacked">
               <li ng-repeat="child in child.children" class="c-children">
-                <a ui-sref="main.gallery.thumbs({tipo: child.sref, id: child.id, pages: 1})">
+                <a ui-sref="main.gallery.thumbs({tipoThumb: child.tipo_thumb, tipo: child.sref, id: child.id, page: 1})">
                   {{child.titleEn}}
                   <!-- {{child.titlePt}}<br> -->
                 </a>
@@ -33,7 +33,7 @@
       </li>
       <li ng-if="state.current.name == 'main.gallery.view'" style="visible: hidden">
         <a
-          ng-click="$root.requestFullScreen()"
+          ng-click="toggleFullScreen()"
           class="actionButton"
           style="float: left; margin-right: 4px;cursor: pointer">
           <img src="assets/images/btn-full.png"
@@ -88,9 +88,9 @@
             <img src="assets/images/icon-facebook.png" alt="">
           </a>
         </li>
-        <li ng-if="state.current.name == 'main.gallery.view'" style="visible: hidden">
+        <li ng-if="state.current.name == 'main.gallery.view'" style="visible: hidden" esc-clear>
           <a
-            ng-click="$root.requestFullScreen()"
+            ng-click="toggleFullscreen()"
             class="actionButton"
             style="float: left; margin-right: 4px; cursor: pointer;">
             <img src="assets/images/btn-full.png"

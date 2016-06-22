@@ -16,7 +16,7 @@
 	float: right;
 	position: absolute;
 	top: 5px;
-	right: 50px;
+	right: 120px;
 	z-index: 10;
 	color: #fff;
 }
@@ -64,7 +64,19 @@
 .actionButton {
   &:hover {
     span {
-      color: #23527c !important;
+      color: #58edb1 !important;
     }
   }
+}
+
+.concepts-text-wrapper {
+  position: absolute;
+  overflow: hidden;
+  overflow-y: auto;
+  z-index: 999;
+  color: #fff;
+  height: 75%;
+  width: 100%;
+  display: block;
+  transform: translateY(13.5%);
 }
